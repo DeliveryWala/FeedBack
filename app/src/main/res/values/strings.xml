@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">FeedBack</string>
+    <string name="Service">SERVICE</string>
+    <string name="Atmosphere">ATMOSPHERE</string>
+    <string name="Cleanliness">CLEANLINESS</string>
+    <string name="Overallexp">OVERALL EXPERIENCE</string>
+    <string name="Menuvariety">MENU VARIETY</string>
+    <string name="VisitFrequency">HOW OFTEN DO YOU COME HERE?</string>
+    <string name="Othercomments">OTHER COMMENTS</string>
+    <string name="Guestinfo">GUEST INFO</string>
+    <string name="Name">Name</string>
+    <string name="Birthday">Birthday </string>
+    <string name="Anniversary">Anniversary</string>
+    <string name="Mobile">Mobile No.</string>
+    <string name="Email">Email</string>
+    <string name="surpriseplannername">Your Surprise Planner Name</string>
+    <string name="surpriseplannernumber">His/Her Mobile No.</string>
+    <string name="Fbpage">Dont Forget to Review Us On Our Fb Page</string>
+    <string name="Fblink">www.facebook.com/10parkstreet</string>
+
+
+
+
+
+
+
+
+
+
+    <string name="survey">GUEST SURVEY</string>
+    <string name="FoodQuality">FOOD QUALITY</string>
+   <string name="Please">Please let us know how we are doing and how we can do better.We Promise to use your input to make your next visit the best yet</string>
+    <string name="Heading">We want your experience to be a great one we care about the details,because we know that they make a difference</string>
+</resources>
