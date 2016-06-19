@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.Looper;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -80,53 +81,19 @@ public class MainActivity2 extends AppCompatActivity {
         });
 
     }
+    static String r1,r2,r3,r4,r5,r6;
+    public static void Bringrating(String d1,String d2,String d3,String d4,String d5,String d6)
+    {
+        r1=d1;
+        r2=d2;
+        r3=d3;
+        r4=d4;
+        r5=d5;
+        r6=d6;
+    }
 
     public void postData() {
-/*        f=frequency.getText().toString();
-        other=othercomments.getText().toString();
-        n=name.getText().toString();
-        d=dateofbirth.getText().toString();
-        m=mobileno.getText().toString();
-        e=email.getText().toString();
-        pn=plannername.getText().toString();
-        pm=plannernumber.getText().toString();
-        MainActivity obj=new MainActivity();
-        float[] a=obj.getRatingBarValues1();
-        float[] b=obj.getRatingBarValues2();
-        float[] c=obj.getRatingBarValues3();
-        float[] l=obj.getRatingBarValues4();
-        float[] j=obj.getRatingBarValues5();
-        float[] p=obj.getRatingBarValues6();
-
-        final String fullUrl = "https://docs.google.com/forms/d/1kgVjyzamlIVSkd-BiW5iA-AHkVLqcNf9IxObyNyygTg/formResponse";
-        URL url;
-        HttpURLConnection client = null;
-        try {
-            url = new URL(fullUrl);
-            client = (HttpURLConnection) url.openConnection();
-            client.setDoOutput(true);
-            client.setChunkedStreamingMode(0);
-            client.setRequestProperty("Guest Name",n);
-            String input=n;
-            OutputStream out = new BufferedOutputStream(client.getOutputStream());
-            out.write(input.getBytes());
-            out.flush();
-            out.close();
-
-        } catch (MalformedURLException error) {
-            //Handles an incorrectly entered URL
-        } catch (SocketTimeoutException error) {
-//Handles URL access timeout.
-        } catch (IOException error) {
-//Handles input and output errors
-        } finally {
-            if (client != null) // Make sure the connection is not null.
-                client.disconnect();
-
-
-
-        }*/
-
+        Looper.prepare();
         String fullUrl = "https://docs.google.com/forms/d/1rwU-iiwfM4Kw5hSk8m1HpMlR3zGK-j56DCDEOZ6Jwm0/formResponse";
         com.example.abhishek.feedback.HttpRequest mReq = new com.example.abhishek.feedback.HttpRequest();
         String col1 = name.getText().toString();
@@ -136,21 +103,14 @@ public class MainActivity2 extends AppCompatActivity {
         String col5 = email.getText().toString();
         String col6 = plannername.getText().toString();
         String col7 = plannernumber.getText().toString();
-        MainActivity obj=new MainActivity();
-        float[] a=obj.getRatingBarValues1(MainActivity2.this);
-        String col8 = a+"";
-        float[] b=obj.getRatingBarValues2(MainActivity2.this);
-        String col9 = b+"";
-        float[] c=obj.getRatingBarValues3(MainActivity2.this);
-        String col10=c+"";
-        float[] l=obj.getRatingBarValues4(MainActivity2.this);
-        String col11=l+"";
 
-        float[] j=obj.getRatingBarValues5(MainActivity2.this);
-        String col12=j+"";
 
-        float[] p=obj.getRatingBarValues6(MainActivity2.this);
-        String col13=p+"";
+        String col8 = r1+"";
+        String col9 = r2+"";
+        String col10=r3+"";
+        String col11=r4+"";
+        String col12=r5+"";
+        String col13=r6+"";
         String col14=frequency.getText().toString();
         String col15=othercomments.getText().toString();
 

@@ -41,7 +41,21 @@ public class MainActivity extends AppCompatActivity {
         Button button = (Button) findViewById(R.id.button1);
         button.setOnClickListener(new View.OnClickListener() {
                                       @Override
-                                      public void onClick(View v) {
+                                      public void onClick(View v) {float[] a=getRatingBarValues1(MainActivity.this);
+                                          String col8 = a+"";
+                                          float[] b=getRatingBarValues2(MainActivity.this);
+                                          String col9 = b+"";
+                                          float[] c=getRatingBarValues3(MainActivity.this);
+                                          String col10=c+"";
+                                          float[] l=getRatingBarValues4(MainActivity.this);
+                                          String col11=l+"";
+
+                                          float[] j=getRatingBarValues5(MainActivity.this);
+                                          String col12=j+"";
+
+                                          float[] p=getRatingBarValues6(MainActivity.this);
+                                          String col13=p+"";
+                                          MainActivity2.Bringrating(col8,col9,col10,col11,col12,col13);
                                           Intent intent = new Intent("android.intent.action.MainActivity2");
                                           startActivity(intent);
 
@@ -61,9 +75,11 @@ public class MainActivity extends AppCompatActivity {
                 Toast toast = Toast.makeText(mcontext1, mBar1.getRating() + "", Toast.LENGTH_LONG);
                 toast.show();
 
+
             }
 
         });
+
         Toast toast = Toast.makeText(mcontext1, mBar1.getRating() + "", Toast.LENGTH_LONG);
         toast.show();
 
