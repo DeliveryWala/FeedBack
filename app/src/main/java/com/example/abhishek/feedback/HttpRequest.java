@@ -4,10 +4,16 @@ package com.example.abhishek.feedback;
  * Created by Abhishek on 21-05-2016.
  */
 
+    import java.io.BufferedReader;
     import java.io.IOException;
     import java.io.InputStream;
+    import java.io.InputStreamReader;
+    import java.io.OutputStreamWriter;
+    import java.io.PrintWriter;
     import java.io.UnsupportedEncodingException;
     import java.net.HttpURLConnection;
+    import java.net.MalformedURLException;
+    import java.net.SocketTimeoutException;
     import java.net.URL;
     import java.net.URLConnection;
 
@@ -76,7 +82,54 @@ package com.example.abhishek.feedback;
         }
 
         public String sendPost(String url, String data, String contentType) {
-            ret = null;
+            String text = "";
+            BufferedReader reader = null;
+            HttpURLConnection conn=null;
+            // Send data
+            try {
+
+                // Defined URL  where to send data
+                URL url1 = new URL(url);
+
+                // Send POST data request
+
+                 conn = (HttpURLConnection) url1.openConnection();
+                if (data != null) {
+                    conn.setDoOutput(true);
+                    conn.setRequestMethod("POST");
+                    conn.setFixedLengthStreamingMode(
+                            data.getBytes().length);
+                    conn.setRequestProperty("Content-Type",
+                            "application/x-www-form-urlencoded");
+                    PrintWriter out = new PrintWriter(conn.getOutputStream());
+                    out.print(data);
+                    out.close();
+                }
+                // Get the server response
+
+
+                int statusCode = conn.getResponseCode();
+                if (statusCode != HttpURLConnection.HTTP_OK) {
+                    // throw some exception
+                }
+            } catch (MalformedURLException e) {
+                // handle invalid URL
+            } catch (SocketTimeoutException e) {
+                // hadle timeout
+            } catch (IOException e) {
+                // handle I/0
+            } finally {
+                if (conn != null) {
+                    conn.disconnect();
+                }
+            }
+            return null;
+        }
+            // Show response on activity
+        //    content.setText( text  );
+
+
+/*            ret = null;
 
             httpClient.getParams().setParameter(ClientPNames.COOKIE_POLICY, CookiePolicy.RFC_2109);
 
@@ -167,10 +220,9 @@ package com.example.abhishek.feedback;
             } catch (Exception e) {
                 throw new IOException("Error connecting");
             } // end try-catch
-
-            return in;
+*/
         }
-    }
+
 
 
 

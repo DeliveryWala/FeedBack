@@ -128,7 +128,7 @@ public class MainActivity2 extends AppCompatActivity {
         "i.desc.1506942585=" + URLEncoder.encode(col14)+"i.desc.217578277=" + URLEncoder.encode(col15)
                 ;
         String response = mReq.sendPost(fullUrl, data);
-        Log.i(myTag, response);
+        Log.i(myTag, "post");
 
     }
 }
