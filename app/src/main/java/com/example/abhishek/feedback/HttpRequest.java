@@ -32,6 +32,8 @@ package com.example.abhishek.feedback;
     import org.apache.http.util.EntityUtils;
     import org.json.JSONObject;
 
+    import android.content.Context;
+    import android.content.Intent;
     import android.util.Log;
 
 /*
@@ -44,7 +46,7 @@ package com.example.abhishek.feedback;
         DefaultHttpClient httpClient;
         HttpContext localContext;
         private String ret;
-
+Context mcontext;
         HttpResponse response = null;
         HttpPost httpPost = null;
         HttpGet httpGet = null;
@@ -73,15 +75,75 @@ package com.example.abhishek.feedback;
             }
         }
 
-        public String sendPost(String url, String data) {
-            return sendPost(url, data, null);
+        public String sendPost(String url, String data,Context context) {
+            mcontext=context;
+            return sendPost(url, data, null,mcontext);
         }
 
         public String sendJSONPost(String url, JSONObject data) {
-            return sendPost(url, data.toString(), "application/json");
+            return sendPost(url, data.toString(), "application/json",mcontext);
         }
 
-        public String sendPost(String url, String data, String contentType) {
+        public String sendPost(final String url,final String data, String contentType, final Context context) {
+           Thread thread=new Thread(new Runnable() {
+               @Override
+               public void run() {
+                   String text = "";
+                   BufferedReader reader = null;
+                   HttpURLConnection conn=null;
+
+                   // Send data
+                   try {
+
+                       // Defined URL  where to send data
+                       URL url1 = new URL(url);
+
+                       // Send POST data request
+
+                       conn = (HttpURLConnection) url1.openConnection();
+                       if (data != null) {
+                           conn.setDoOutput(true);
+                           conn.setRequestMethod("POST");
+                           conn.setFixedLengthStreamingMode(
+                                   data.getBytes().length);
+                           conn.setRequestProperty("Content-Type",
+                                   "application/x-www-form-urlencoded");
+                           PrintWriter out = new PrintWriter(conn.getOutputStream());
+                           out.print(data);
+
+                           out.close();
+                           ((MainActivity2) context).runOnUiThread(new Runnable() {
+                               @Override
+                               public void run() {
+                                   Intent i = new Intent(context, SplashScreenActivity.class);
+                                   context.startActivity(i);
+
+                               }
+                           });
+                       }
+                       // Get the server response
+
+
+                       int statusCode = conn.getResponseCode();
+                       if (statusCode != HttpURLConnection.HTTP_OK) {
+                           // throw some exception
+                       }
+                   } catch (MalformedURLException e) {
+                       // handle invalid URL
+                   } catch (SocketTimeoutException e) {
+                       // hadle timeout
+                   } catch (IOException e) {
+                       // handle I/0
+                   } finally {
+                       if (conn != null) {
+                           conn.disconnect();
+                       }
+                   }
+
+               }
+           });
+            thread.start();
+            /*
             String text = "";
             BufferedReader reader = null;
             HttpURLConnection conn=null;
@@ -122,105 +184,10 @@ package com.example.abhishek.feedback;
                 if (conn != null) {
                     conn.disconnect();
                 }
-            }
+            }*/
             return null;
         }
-            // Show response on activity
-        //    content.setText( text  );
 
-
-/*            ret = null;
-
-            httpClient.getParams().setParameter(ClientPNames.COOKIE_POLICY, CookiePolicy.RFC_2109);
-
-            httpPost = new HttpPost(url);
-            response = null;
-
-            StringEntity tmp = null;
-
-            Log.d("Your App Name Here", "Setting httpPost headers");
-
-            httpPost.setHeader("User-Agent", "SET YOUR USER AGENT STRING HERE");
-            httpPost.setHeader("Accept", "text/html,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*;q=0.5");
-
-            if (contentType != null) {
-                httpPost.setHeader("Content-Type", contentType);
-            } else {
-                httpPost.setHeader("Content-Type", "application/x-www-form-urlencoded");
-            }
-
-            try {
-                tmp = new StringEntity(data,"UTF-8");
-            } catch (UnsupportedEncodingException e) {
-                Log.e("Your App Name Here", "HttpUtils : UnsupportedEncodingException : "+e);
-            }
-
-            httpPost.setEntity(tmp);
-
-            Log.d("Your App Name Here", url + "?" + data);
-
-            try {
-                response = httpClient.execute(httpPost,localContext);
-
-                if (response != null) {
-                    ret = EntityUtils.toString(response.getEntity());
-                }
-            } catch (Exception e) {
-                Log.e("Your App Name Here", "HttpUtils: " + e);
-            }
-
-            Log.d("Your App Name Here", "Returning value:" + ret);
-
-            return ret;
-        }
-
-        public String sendGet(String url) {
-            httpGet = new HttpGet(url);
-
-            try {
-                response = httpClient.execute(httpGet);
-            } catch (Exception e) {
-                Log.e("Your App Name Here", e.getMessage());
-            }
-
-            //int status = response.getStatusLine().getStatusCode();
-
-            // we assume that the response body contains the error message
-            try {
-                ret = EntityUtils.toString(response.getEntity());
-            } catch (IOException e) {
-                Log.e("Your App Name Here", e.getMessage());
-            }
-
-            return ret;
-        }
-
-        public InputStream getHttpStream(String urlString) throws IOException {
-            InputStream in = null;
-            int response = -1;
-
-            URL url = new URL(urlString);
-            URLConnection conn = url.openConnection();
-
-            if (!(conn instanceof HttpURLConnection))
-                throw new IOException("Not an HTTP connection");
-
-            try{
-                HttpURLConnection httpConn = (HttpURLConnection) conn;
-                httpConn.setAllowUserInteraction(false);
-                httpConn.setInstanceFollowRedirects(true);
-                httpConn.setRequestMethod("GET");
-                httpConn.connect();
-
-                response = httpConn.getResponseCode();
-
-                if (response == HttpURLConnection.HTTP_OK) {
-                    in = httpConn.getInputStream();
-                }
-            } catch (Exception e) {
-                throw new IOException("Error connecting");
-            } // end try-catch
-*/
         }
 
 

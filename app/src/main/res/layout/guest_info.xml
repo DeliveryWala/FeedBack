@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="wrap_content" >
+    android:layout_height="wrap_content"
+    android:background="#e98d16">
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -9,6 +10,7 @@
         android:text="@string/VisitFrequency"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/abc_primary_text_material_light"
         android:id="@+id/text10"
         android:layout_alignParentStart="true"
         android:layout_margin="10dp"/>
@@ -27,6 +29,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="X per month"
+        android:textColor="@color/abc_primary_text_material_light"
         android:id="@+id/text11"
         android:layout_toRightOf="@id/editText1"
         android:layout_margin="10dp"
@@ -35,8 +38,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Othercomments"
+        android:textColor="@color/abc_primary_text_material_light"
         android:id="@+id/text12"
         android:layout_below="@+id/text11"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
         android:layout_marginLeft="10dp"
 
         />
@@ -56,6 +61,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/text13"
         android:text="@string/Guestinfo"
+        android:textColor="@color/abc_primary_text_material_light"
         android:textSize="20dp"
         android:layout_margin="10dp"
         android:layout_below="@+id/editText2"
@@ -67,6 +73,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/text14"
         android:text="@string/Name"
+        android:textColor="@color/abc_primary_text_material_light"
         android:layout_below="@+id/text13"
         android:layout_margin="10dp"
 
@@ -86,6 +93,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/text15"
         android:text="@string/Birthday"
+        android:textColor="@color/abc_primary_text_material_light"
         android:layout_below="@+id/text14"
         android:layout_marginTop="25dp"
         android:layout_marginLeft="10dp"
@@ -97,7 +105,7 @@
        android:layout_height="wrap_content"
        android:id="@+id/editText4"
        android:inputType="date"
-       android:hint="DDMMYYYY"
+       android:hint="DD/MM/YYYY"
        android:layout_toRightOf="@+id/text15"
        android:layout_marginTop="15dp"
        android:layout_below="@+id/text14"
@@ -107,6 +115,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/text16"
         android:text="@string/Anniversary"
+        android:textColor="@color/abc_primary_text_material_light"
         android:layout_below="@+id/text15"
         android:layout_marginTop="25dp"
         android:layout_marginLeft="10dp"
@@ -118,7 +127,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/editText5"
         android:inputType="date"
-        android:hint="DDMMYYYY"
+        android:hint="DD/MM/YYYY"
         android:layout_toRightOf="@+id/text16"
         android:layout_marginTop="15dp"
         android:layout_below="@+id/text15"
@@ -132,6 +141,7 @@
         android:id="@+id/text17"
         android:text="@string/Mobile"
         android:layout_below="@+id/text16"
+        android:textColor="@color/abc_primary_text_material_light"
         android:layout_marginTop="40dp"
         android:layout_marginLeft="10dp"
         />
@@ -139,6 +149,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/text17"
+        android:inputType="number"
         android:layout_below="@+id/text16"
         android:id="@+id/editText6"
         android:layout_marginTop="20dp"
@@ -150,6 +161,7 @@
         android:id="@+id/text18"
         android:text="@string/Email"
         android:layout_below="@+id/editText6"
+        android:textColor="@color/abc_primary_text_material_light"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="10dp"
         />
@@ -166,6 +178,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/text19"
         android:text="@string/surpriseplannername"
+        android:textColor="@color/abc_primary_text_material_light"
         android:layout_below="@+id/editText7"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="10dp"
@@ -177,12 +190,14 @@
         android:id="@+id/editText8"
         android:layout_margin="10dp"
         android:layout_below="@+id/editText7"
+        android:layout_toEndOf="@+id/text19"
         />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/text20"
         android:text="@string/surpriseplannernumber"
+        android:textColor="@color/abc_primary_text_material_light"
         android:layout_below="@+id/editText8"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="10dp"
@@ -202,6 +217,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/text21"
         android:text="@string/Fbpage"
+        android:textColor="@color/abc_primary_text_material_light"
         android:layout_below="@+id/editText9"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="10dp"
@@ -210,6 +226,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/abc_primary_text_material_light"
         android:id="@+id/text22"
         android:text="@string/Fblink"
         android:layout_below="@+id/text21"
@@ -225,7 +242,8 @@
         android:text="SUBMIT"
         android:layout_below="@+id/text22"
         android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true" />
+        android:layout_alignParentBottom="true"
+        android:background="#ce9e2f"/>
 
 </RelativeLayout>
     </ScrollView>

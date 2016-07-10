@@ -42,19 +42,19 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
                                       @Override
                                       public void onClick(View v) {float[] a=getRatingBarValues1(MainActivity.this);
-                                          String col8 = a+"";
+                                          String col8 = String.valueOf(a[0]);
                                           float[] b=getRatingBarValues2(MainActivity.this);
-                                          String col9 = b+"";
+                                          String col9 = String.valueOf(b[0]);
                                           float[] c=getRatingBarValues3(MainActivity.this);
-                                          String col10=c+"";
+                                          String col10=String.valueOf(c[0]);
                                           float[] l=getRatingBarValues4(MainActivity.this);
-                                          String col11=l+"";
+                                          String col11=String.valueOf(l[0]);
 
                                           float[] j=getRatingBarValues5(MainActivity.this);
-                                          String col12=j+"";
+                                          String col12=String.valueOf(j[0]);
 
                                           float[] p=getRatingBarValues6(MainActivity.this);
-                                          String col13=p+"";
+                                          String col13=String.valueOf(p[0]);
                                           MainActivity2.Bringrating(col8,col9,col10,col11,col12,col13);
                                           Intent intent = new Intent("android.intent.action.MainActivity2");
                                           startActivity(intent);
@@ -72,16 +72,16 @@ public class MainActivity extends AppCompatActivity {
         mBar1.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
-                Toast toast = Toast.makeText(mcontext1, mBar1.getRating() + "", Toast.LENGTH_LONG);
-                toast.show();
+               // Toast toast = Toast.makeText(mcontext1, mBar1.getRating() + "", Toast.LENGTH_LONG);
+                //toast.show();
 
 
             }
 
         });
 
-        Toast toast = Toast.makeText(mcontext1, mBar1.getRating() + "", Toast.LENGTH_LONG);
-        toast.show();
+        //Toast toast = Toast.makeText(mcontext1, mBar1.getRating() + "", Toast.LENGTH_LONG);
+        //toast.show();
 
         return i;
     }
@@ -91,14 +91,14 @@ public class MainActivity extends AppCompatActivity {
         mBar1.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
-                Toast toast = Toast.makeText(mcontext2, mBar1.getRating() + "", Toast.LENGTH_LONG);
-                toast.show();
+                //Toast toast = Toast.makeText(mcontext2, mBar1.getRating() + "", Toast.LENGTH_LONG);
+                //toast.show();
 
             }
 
         });
-        Toast toast = Toast.makeText(mcontext2, mBar1.getRating() + "", Toast.LENGTH_LONG);
-        toast.show();
+        //Toast toast = Toast.makeText(mcontext2, mBar1.getRating() + "", Toast.LENGTH_LONG);
+        //toast.show();
 
         return j;
     } public float[]  getRatingBarValues3(final Context mcontext3)
@@ -107,14 +107,14 @@ public class MainActivity extends AppCompatActivity {
         mBar1.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
-                Toast toast = Toast.makeText(mcontext3, mBar1.getRating() + "", Toast.LENGTH_LONG);
-                toast.show();
+                //Toast toast = Toast.makeText(mcontext3, mBar1.getRating() + "", Toast.LENGTH_LONG);
+                //toast.show();
 
             }
 
         });
-        Toast toast = Toast.makeText(mcontext3, mBar1.getRating() + "", Toast.LENGTH_LONG);
-        toast.show();
+        //Toast toast = Toast.makeText(mcontext3, mBar1.getRating() + "", Toast.LENGTH_LONG);
+        //toast.show();
 
         return k;
     } public float[]  getRatingBarValues4(final Context mcontext4)
@@ -123,14 +123,14 @@ public class MainActivity extends AppCompatActivity {
         mBar1.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
-                Toast toast = Toast.makeText(mcontext4, mBar1.getRating() + "", Toast.LENGTH_LONG);
-                toast.show();
+          //      Toast toast = Toast.makeText(mcontext4, mBar1.getRating() + "", Toast.LENGTH_LONG);
+            //    toast.show();
 
             }
 
         });
-        Toast toast = Toast.makeText(mcontext4, mBar1.getRating() + "", Toast.LENGTH_LONG);
-        toast.show();
+        //Toast toast = Toast.makeText(mcontext4, mBar1.getRating() + "", Toast.LENGTH_LONG);
+        //toast.show();
 
         return l;
     }
@@ -140,14 +140,14 @@ public class MainActivity extends AppCompatActivity {
         mBar1.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
-                Toast toast = Toast.makeText(mcontext5, mBar1.getRating() + "", Toast.LENGTH_LONG);
-                toast.show();
+          //      Toast toast = Toast.makeText(mcontext5, mBar1.getRating() + "", Toast.LENGTH_LONG);
+            //    toast.show();
 
             }
 
         });
-        Toast toast = Toast.makeText(mcontext5, mBar1.getRating() + "", Toast.LENGTH_LONG);
-        toast.show();
+        //Toast toast = Toast.makeText(mcontext5, mBar1.getRating() + "", Toast.LENGTH_LONG);
+        //toast.show();
 
         return m;
     } public float[]  getRatingBarValues6(final Context mcontext6)
@@ -156,14 +156,14 @@ public class MainActivity extends AppCompatActivity {
         mBar1.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
-                Toast toast = Toast.makeText(mcontext6, mBar1.getRating() + "", Toast.LENGTH_LONG);
-                toast.show();
+          //      Toast toast = Toast.makeText(mcontext6, mBar1.getRating() + "", Toast.LENGTH_LONG);
+            //    toast.show();
 
             }
 
         });
-        Toast toast = Toast.makeText(mcontext6, mBar1.getRating() + "", Toast.LENGTH_LONG);
-        toast.show();
+        //Toast toast = Toast.makeText(mcontext6, mBar1.getRating() + "", Toast.LENGTH_LONG);
+        //toast.show();
 
         return n;
     }
